@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.0'
 
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
@@ -28,7 +29,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 group :test do
-  gem 'rspec', '~> 3.4'
+
   gem 'factory_bot_rails'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
@@ -38,7 +39,8 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
+  gem 'rspec', '~> 3.8'
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
