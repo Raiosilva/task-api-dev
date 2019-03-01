@@ -30,7 +30,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 group :test do
 
-  gem 'factory_bot_rails'
+  #gem "factory_bot_rails"
+  gem 'factory_girl_rails'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'faker', '~> 1.6', '>= 1.6.6'
@@ -41,6 +42,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec', '~> 3.8'
   gem 'rspec-rails', '~> 3.8'
+  #gem 'factory_bot_rails'
+  #gem 'factory_girl_rails'
 end
 
 group :development do
