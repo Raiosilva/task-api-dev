@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  #builld test de memorio cria o objeto e mantem em memoria.
   let(:user) { build(:user) }
 
 
