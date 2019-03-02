@@ -4,7 +4,20 @@ RSpec.describe User, type: :model do
   #builld test de memorio cria o objeto e mantem em memoria.
   let(:user) { build(:user) }
 
+  it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
+  it { is_expected.to validate_confirmation_of(:password) }
+  it { is_expected.to allow_value('raimundo@gmail.com').for(:email)}
+  it { is_expected.to validate_uniqueness_of(:auth_token) }
 
+  #testar metodo de instância
+  describe '#info' do
+    it 'returns email and created_at' do
+      user.save!
+
+      expect(user.info).to eq("#{user.email} - #{user.created_at}")
+    end
+  end
 
   #subject { build(:user)}
   #before { @user = FactoryGirl.build(:user) }
@@ -31,9 +44,6 @@ RSpec.describe User, type: :model do
 
   #it { is_expected.to validate_presence_of(:name) }
 
-  it { is_expected.to validate_presence_of(:email) }
-  it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
-  it { is_expected.to validate_confirmation_of(:password) }
-  it { is_expected.to allow_value('raimundo@gmail.com').for(:email)}
+
 
 end
