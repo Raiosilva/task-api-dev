@@ -53,12 +53,14 @@ RSpec.describe 'Session API', type: :request do
             delete '/auth/sign_out', params: {}, headers: headers
         end
 
-        it 'returns status code 204' do
-            expect(response).to have_http_status(204)
+        it 'returns status code 200' do
+            expect(response).to have_http_status(200)
         end
 
         it 'changes the user auth token' do
-            expect( User.find_by(auth_token: auth_token) ).to be_nil
+            user.reload
+            #expect(user.valid_token?(auth_data['access-token'], auth_data['client'])).to eq(false)
+            expect( user ).not_to be_valid_token(auth_data['access-token'], auth_data['client'])  
         end
     end
 end
